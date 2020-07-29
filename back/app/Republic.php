@@ -23,33 +23,34 @@ class Republic extends Model
     $this->save();
   }
 
-  public function updateRepublic(RepublicRequest $request){
-    if($request->name){
-        $this->name = $request->name;
+  public function updateRepublic(RepublicRequest $request)
+  {
+    if ($request->name) {
+      $this->name = $request->name;
     }
-    if($request->zipCode){
-        $this->zipCode = $request->zipCode;
+    if ($request->zipCode) {
+      $this->zipCode = $request->zipCode;
     }
-    if($request->city){
-        $this->city = $request->city;
+    if ($request->city) {
+      $this->city = $request->city;
     }
-    if($request->street){
-        $this->street = $request->street;
+    if ($request->street) {
+      $this->street = $request->street;
     }
-    if($request->number){
-        $this->number = $request->number;
+    if ($request->number) {
+      $this->number = $request->number;
     }
-    if($request->totalBathroom){
-        $this->totalBathroom = $request->totalBathroom;
+    if ($request->totalBathroom) {
+      $this->totalBathroom = $request->totalBathroom;
     }
-    if($request->haveBackyard){
-        $this->haveBackyard = $request->haveBackyard;
+    if ($request->haveBackyard) {
+      $this->haveBackyard = $request->haveBackyard;
     }
-    if($request->acceptPets){
-        $this->acceptPets = $request->acceptPets;
+    if ($request->acceptPets) {
+      $this->acceptPets = $request->acceptPets;
     }
     $this->save();
-}
+  }
 
   public function users()
   {
