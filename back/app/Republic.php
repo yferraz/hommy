@@ -10,6 +10,21 @@ use App\Http\Requests\RepublicRequest;
 
 class Republic extends Model
 {
+  public function user()
+  {
+    return $this->belongsTo('App\User');
+  }
+
+  public function userLocatario()
+  {
+    return $this->hasOne('App\User');
+  }
+
+  public function userFavoritas()
+  {
+    return $this->belongsToMany('App\User');
+  }
+
   public function createRepublic(RepublicRequest $request)
   {
     $this->name = $request->name;
@@ -57,19 +72,5 @@ class Republic extends Model
     $user = User::findOrFail($user_id);
     $this->user_id = $user_id;
     $this->save();
-  }
-
-  public function user()
-  {
-    return $this->belongsTo('App\User');
-  }
-
-  public function userLocatario()
-  {
-    return $this->hasOne('App\User');
-  }
-
-  public function userFavoritas(){
-    return $this->belongsToMany('App\User');
   }
 }
