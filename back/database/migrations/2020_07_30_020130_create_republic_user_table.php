@@ -15,8 +15,8 @@ class CreateRepublicUserTable extends Migration
     {
         Schema::create('republic_user', function (Blueprint $table) {
             $table->id();
-            $table->string('republic_id')->nullable();
-            $table->string('user_id')->nullable();
+            $table->unsignedBigInteger('republic_id')->nullable();
+            $table->unsignedBigInteger('user_id')->nullable();
             $table->timestamps();
         });
 

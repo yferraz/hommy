@@ -64,11 +64,6 @@ class Republic extends Model
     return $this->belongsTo('App\User');
   }
 
-  public function bedrooms()
-  {
-    return $this->hasMany('App\Bedroom');
-  }
-
   public function userLocatario()
   {
     return $this->hasOne('App\User');
