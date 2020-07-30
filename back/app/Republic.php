@@ -52,7 +52,14 @@ class Republic extends Model
     $this->save();
   }
 
-  public function users()
+  public function anunciar($user_id)
+  {
+    $user = User::findOrFail($user_id);
+    $this->user_id = $user_id;
+    $this->save();
+  }
+
+  public function user()
   {
     return $this->belongsTo('App\User');
   }
@@ -60,5 +67,14 @@ class Republic extends Model
   public function bedrooms()
   {
     return $this->hasMany('App\Bedroom');
+  }
+
+  public function userLocatario()
+  {
+    return $this->hasOne('App\User');
+  }
+
+  public function userFavoritas(){
+    return $this->belongsToMany('App\User');
   }
 }

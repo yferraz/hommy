@@ -51,4 +51,15 @@ class RepublicController extends Controller
         $republic->save();
         return response()->json($republic);
     }
+
+    public function locatario($id){
+        $republic = Republic::findOrFail($id);
+        $locatarios = $republic->userLocatario->get();
+        return response()->json($locatarios);
+    }
+
+    public function locador($id){
+        $republic = Republic::findOrFail($id);
+        return response()->json($republic->user);
+    }
 }
