@@ -62,4 +62,15 @@ class RepublicController extends Controller
         $republic = Republic::findOrFail($id);
         return response()->json($republic->user);
     }
+
+    public function retornarUsuarios($id){
+        $republic = Republic::findOrFail($id);
+        return response()->json($republic->users);
+    }
+
+    public function retornarProprietario($id){
+        $republic = Republic::findOrFail($id);
+        $user = User::findOrFail($republic->user_id);
+        return response()->json($user);
+    }
 }

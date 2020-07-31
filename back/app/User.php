@@ -97,11 +97,10 @@ class User extends Authenticatable
         $this->save();
     }
 
-    public function retornarRepublica($id){
-        $user = User::findOrFail($id);
-        return response()->json($user->republic);
+    public function removeAluguel(){
+        $this->republic_id = NULL;
+        $this->save();
     }
 
-    
     
 }

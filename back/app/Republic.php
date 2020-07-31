@@ -15,6 +15,11 @@ class Republic extends Model
     return $this->belongsTo('App\User');
   }
 
+  public function users()
+  {
+    return $this->hasMany('App\User');
+  }
+
   public function userLocatario()
   {
     return $this->hasOne('App\User');
@@ -71,6 +76,12 @@ class Republic extends Model
   {
     $user = User::findOrFail($user_id);
     $this->user_id = $user_id;
+    $this->save();
+  }
+
+  public function removeUsuario()
+  {
+    $this->user_id = NULL;
     $this->save();
   }
 }
