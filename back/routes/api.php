@@ -27,6 +27,8 @@ Route::put('retornarUsuarios/{id}', 'RepublicController@retornarUsuarios');
 
 Route::put('retornarProprietario/{id}', 'RepublicController@retornarProprietario');
 
+Route::get('listarComentarios/{id}', 'RepublicController@listarComentarios');
+
 
 //UserController
 Route::post('createUser', 'UserController@createUser');
@@ -43,7 +45,14 @@ Route::put('retornarRepublica/{id}', 'UserController@retornarRepublica');
 Route::put('favoritar/{id}/{republic_id}', 'UserController@favoritar');
 Route::put('desfavoritar/{id}/{republic_id}', 'UserController@desfavoritar');
 
-Route::get('listFavoritos/{id}', 'UserController@listFavoritos');
+Route::get('listarFavoritos/{id}', 'UserController@listarFavoritos');
+
+
+//CommentController
+Route::post('createComment', 'CommentController@createComment');
+
+Route::put('comentarUsuario/{id}/{user_id}', 'CommentController@comentarUsuario');
+Route::put('comentarRepublica/{id}/{republica_id}', 'CommentController@comentarRepublica');
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();

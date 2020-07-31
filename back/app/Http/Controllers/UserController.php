@@ -84,7 +84,7 @@ class UserController extends Controller
         return response()->json($user);
     }
 
-    public function listFavoritos($id)
+    public function listarFavoritos($id)
     {
         $user = User::findOrFail($id);
         return response()->json($user->favoritas);

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Republic;
 use App\User;
+use App\Comment;
 use App\Http\Requests\RepublicRequest;
 
 class RepublicController extends Controller
@@ -72,5 +73,11 @@ class RepublicController extends Controller
         $republic = Republic::findOrFail($id);
         $user = User::findOrFail($republic->user_id);
         return response()->json($user);
+    }
+
+    public function listarComentarios($id)
+    {
+        $republic = Republic::findOrFail($id);
+        return response()->json($republic->comentariosRepublica);
     }
 }

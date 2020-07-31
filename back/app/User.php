@@ -56,6 +56,10 @@ class User extends Authenticatable
         return $this->belongsToMany('App\Republic');
     }
 
+    public function commentsUser() {
+        return $this->hasMany('App\Comment');
+    }
+
     public function createUser(UserRequest $request)
     {
         $this->name = $request->name;
@@ -102,5 +106,4 @@ class User extends Authenticatable
         $this->save();
     }
 
-    
 }

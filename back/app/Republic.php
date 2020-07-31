@@ -5,7 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use App\User;
-use App\Bedroom;
+use App\Comment;
 use App\Http\Requests\RepublicRequest;
 
 class Republic extends Model
@@ -28,6 +28,11 @@ class Republic extends Model
   public function userFavoritas()
   {
     return $this->belongsToMany('App\User');
+  }
+
+  public function comentariosRepublica()
+  {
+    return $this->hasMany('App\Comment');
   }
 
   public function createRepublic(RepublicRequest $request)
