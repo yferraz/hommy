@@ -57,3 +57,12 @@ Route::put('comentarRepublica/{id}/{republica_id}', 'CommentController@comentarR
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+//PassportController
+Route::post('register', 'API\PassportController@register');
+Route::post('login', 'API\PassportController@login');
+
+Route::group(['middleware'=>'auth:api'], function(){
+    Route::get('logout', 'API\PassportController@logout');
+    Route::post('getDetails', 'API\PassportController@getDetails');
+});
